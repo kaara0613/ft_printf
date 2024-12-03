@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaara <kaara@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kaara <kaara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 18:48:38 by kaara             #+#    #+#             */
-/*   Updated: 2024/08/17 17:49:33 by kaara            ###   ########.fr       */
+/*   Updated: 2024/12/03 18:05:25 by kaara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int	print_p(void *ptr);
 int	printf_putnbr(int n);
 int	check_par(const char *format, va_list *args);
 int	ft_printf(const char *format, ...);
-
 
 #endif

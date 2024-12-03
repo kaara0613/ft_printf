@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_format.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaara <kaara@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kaara <kaara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 14:59:08 by kaara             #+#    #+#             */
-/*   Updated: 2024/08/18 01:50:09 by kaara            ###   ########.fr       */
+/*   Updated: 2024/12/03 18:10:55 by kaara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ int	print_c(int c)
 int	print_s(char *str)
 {
 	int	len;
-	
+
 	len = 0;
 	if (str == NULL)
 	{
-		len = 6, write(1, "(null)", len);
-		return(len);
+		len = 6;
+		write(1, "(null)", len);
+		return (len);
 	}
 	while (str[len])
 		len++;
@@ -44,10 +45,14 @@ int	print_d_i(int di)
 	i = 0;
 	temp = 0;
 	if (di == 0)
-		temp++, write(1, "0", 1);
+	{
+		temp++;
+		write(1, "0", 1);
+	}
 	if (di < 0)
 	{
-		temp++, write(1, "-", 1);
+		temp++;
+		write(1, "-", 1);
 		un = (unsigned int)-di;
 	}
 	else
@@ -72,7 +77,10 @@ int	print_u(unsigned int u)
 	i = 0;
 	temp = 0;
 	if (u == 0)
-		temp++, write(1, "0", 1);
+	{
+		temp++;
+		write(1, "0", 1);
+	}
 	while (u)
 	{
 		result[i++] = u % 10 + '0';

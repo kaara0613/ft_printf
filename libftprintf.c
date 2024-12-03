@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaara <kaara@student.42tokyo.jp>           +#+  +:+       +#+        */
+/*   By: kaara <kaara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:59:27 by kaara             #+#    #+#             */
-/*   Updated: 2024/08/18 15:19:59 by kaara            ###   ########.fr       */
+/*   Updated: 2024/12/03 18:05:43 by kaara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_par(const char *format, va_list *args);
+static int	check_par(const char *format, va_list *args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -40,7 +40,7 @@ int	ft_printf(const char *format, ...)
 	return (total_len - 1);
 }
 
-int	check_par(const char *format, va_list *args)
+static int	check_par(const char *format, va_list *args)
 {
 	int total_len;
 
