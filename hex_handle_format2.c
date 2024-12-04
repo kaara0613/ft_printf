@@ -6,13 +6,13 @@
 /*   By: kaara <kaara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 17:09:13 by kaara             #+#    #+#             */
-/*   Updated: 2024/12/03 18:07:43 by kaara            ###   ########.fr       */
+/*   Updated: 2024/12/04 15:16:33 by kaara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_x(unsigned long x, int u)
+int	print_x(unsigned long x)
 {
 	int		i;
 	int		temp;
@@ -26,23 +26,38 @@ int	print_x(unsigned long x, int u)
 		temp++;
 		write(1, "0", 1);
 	}
-	if (u)
+	hex_digits = "0123456789abcdef";
+	while (x)
 	{
-		hex_digits = "0123456789abcdef";
-		while (x)
-		{
-			result[i++] = hex_digits[x % 16];
-			x = x / 16;
-		}
+		result[i++] = hex_digits[x % 16];
+		x = x / 16;
 	}
-	else
+	result[i] = '\0';
+	temp += i;
+	while (i)
+		write (1, &result[--i], 1);
+	return (temp);
+}
+
+int	print_upper_x(unsigned long x)
+{
+	int		i;
+	int		temp;
+	char	*hex_digits;
+	char	result[21];
+
+	i = 0;
+	temp = 0;
+	if (x == 0)
 	{
-		hex_digits = "0123456789ABCDEF";
-		while (x)
-		{
-			result[i++] = hex_digits[x % 16];
-			x = x / 16;
-		}
+		temp++;
+		write(1, "0", 1);
+	}
+	hex_digits = "0123456789ABCDEF";
+	while (x)
+	{
+		result[i++] = hex_digits[x % 16];
+		x = x / 16;
 	}
 	result[i] = '\0';
 	temp += i;
@@ -65,6 +80,6 @@ int	print_p(void *ptr)
 	addr = (unsigned long)ptr;
 	len = 2;
 	write(1, "0x", 2);
-	len += print_x(addr, 1);
+	len += print_x(addr);
 	return (len);
 }

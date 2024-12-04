@@ -3,38 +3,38 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kaara <kaara@student.42tokyo.jp>           +#+  +:+       +#+         #
+#    By: kaara <kaara@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/12 15:45:43 by kaara             #+#    #+#              #
-#    Updated: 2024/08/12 18:46:57 by kaara            ###   ########.fr        #
+#    Updated: 2024/12/04 15:06:10 by kaara            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS = handle_format.c hex_handle_format2.c libftprintf.c
+SRC_DIR = src
 
-OBJS = ${SRCS:.c=.o}
+SRCS = handle_format.c hex_handle_format2.c libftprintf.c 
+
+OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
 
-AR = ar rcs
-RM = rm -f
+CFLAGS = -g -Wall -Wextra -Werror
 
-all: ${NAME}
+all: $(NAME)
 
-${NAME}: ${OBJS}
-	${AR} ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	${RM} ${OBJS}
+	rm -f $(OBJS)
 
 fclean: clean
-	${RM} ${NAME}
+	rm -f $(NAME)
 
 re: fclean all
 

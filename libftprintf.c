@@ -6,7 +6,7 @@
 /*   By: kaara <kaara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 12:59:27 by kaara             #+#    #+#             */
-/*   Updated: 2024/12/03 18:05:43 by kaara            ###   ########.fr       */
+/*   Updated: 2024/12/04 15:16:56 by kaara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_printf(const char *format, ...)
 
 static int	check_par(const char *format, va_list *args)
 {
-	int total_len;
+	int	total_len;
 
 	total_len = 0;
 	if (*format == 'c')
@@ -56,9 +56,9 @@ static int	check_par(const char *format, va_list *args)
 	else if (*format == 'u')
 		total_len += print_u(va_arg(*args, unsigned int));
 	else if (*format == 'x')
-		total_len += print_x(va_arg(*args, unsigned int), 1);
+		total_len += print_x(va_arg(*args, unsigned int));
 	else if (*format == 'X')
-		total_len += print_x(va_arg(*args, unsigned int), 0);
+		total_len += print_upper_x(va_arg(*args, unsigned int));
 	else if (*format == '%')
 	{
 		write(1, "%", 1);

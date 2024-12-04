@@ -6,7 +6,7 @@
 /*   By: kaara <kaara@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 18:48:38 by kaara             #+#    #+#             */
-/*   Updated: 2024/12/03 18:05:25 by kaara            ###   ########.fr       */
+/*   Updated: 2024/12/04 15:17:06 by kaara            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int	print_s(char *str);
 int	print_d_i(int di);
 int	print_i(int i);
 int	print_u(unsigned int u);
-int	print_x(unsigned long x, int u);
+int	print_x(unsigned long x);
+int	print_upper_(unsigned long x);
 int	print_p(void *ptr);
 int	printf_putnbr(int n);
-int	check_par(const char *format, va_list *args);
 int	ft_printf(const char *format, ...);
 
 #endif
